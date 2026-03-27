@@ -1,0 +1,11 @@
+resource "aws_s3_bucket" "website" {
+  bucket = "my-static-site-12345"
+}
+
+resource "aws_s3_bucket_website_configuration" "web" {
+  bucket = aws_s3_bucket.website.id
+
+  index_document {
+    suffix = "index.html"
+  }
+}
